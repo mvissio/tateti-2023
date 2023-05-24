@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography } from '@mui/material';
 
-// Este componente muestra el marcador del juego
 const Scoreboard = ({ scores }) => (
   <div>
     <Typography variant="h6">Marcador:</Typography>

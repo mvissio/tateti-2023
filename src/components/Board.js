@@ -1,9 +1,7 @@
 import React from 'react';
 import Square from './Square';
 
-// Este componente representa el tablero de juego
 const Board = ({ squares, onClick, winningSquares }) => {
-  // Esta función renderiza un cuadrado en el tablero
   const renderSquare = (i) => {
     return (
       <Square
@@ -14,7 +12,6 @@ const Board = ({ squares, onClick, winningSquares }) => {
     );
   }
 
-  // Estilo para el tablero del juego
   const style = {
     border: '4px solid darkblue',
     borderRadius: '10px',

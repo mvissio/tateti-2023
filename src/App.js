@@ -4,16 +4,13 @@ import { calculateWinner } from './helpers';
 import Scoreboard from './components/Scoreboard';
 import { Container, Button, Box, Typography } from '@mui/material';
 
-// Este es el componente principal de la aplicación
 const App = () => {
-  // Definimos el estado inicial del juego
   const [board, setBoard] = useState(Array(9).fill(null));
   const [xIsNext, setXisNext] = useState(true);
   const [scores, setScores] = useState({ X: 0, O: 0, draw: 0 });
   const winnerInfo = calculateWinner(board);
   const winner = winnerInfo.winner;
 
-  // Actualizamos el marcador cuando haya un ganador o empate
   useEffect(() => {
     if (winner === 'X') {
       setScores((scores) => ({ ...scores, X: scores.X + 1 }));
@@ -24,12 +21,9 @@ const App = () => {
     }
   }, [winner, board]);
 
-  // Esta función maneja los clics en el tablero
   const handleClick = (i) => {
     const boardCopy = [...board];
-    // Si el usuario hace clic en un cuadro ocupado o si el juego ha sido ganado, retornamos
     if (winner || boardCopy[i]) return;
-    // Pone una X o una O en el cuadro seleccionado
     boardCopy[i] = xIsNext ? 'X' : 'O';
     setBoard(boardCopy);
     setXisNext(!xIsNext);
